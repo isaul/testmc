@@ -1,0 +1,322 @@
+/* style.css */
+
+/* --- RESET BÁSICO Y CONFIGURACIÓN GENERAL --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    background-color: #dde1e2; /* Un gris un poco más oscuro para el fondo exterior */
+    color: #2c3e50; /* Azul oscuro para texto por defecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Espacio alrededor del slide-container */
+}
+
+/* --- CONTENEDOR PRINCIPAL 4:3 --- */
+.slide-container {
+    width: 1024px; /* Ancho base para 4:3, puede ser ajustado */
+    height: 768px; /* Alto base para 4:3 */
+    background-color: #ffffff; /* Fondo blanco para la diapositiva */
+    border: 1px solid #bdc3c7; /* Borde sutil */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Para asegurar que el contenido no se desborde del ratio */
+    position: relative; /* Para paginación si se añade después */
+}
+
+/* --- ESTRUCTURA DE LA PÁGINA (DIAPOSITIVA) --- */
+.slide-header {
+    padding: 20px 40px;
+    background-color: #2c3e50; /* Azul oscuro */
+    color: #ffffff;
+    text-align: center;
+    min-height: 60px; /* Altura mínima para el encabezado */
+}
+
+.slide-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em; /* Tamaño ajustado para cabecera */
+    font-weight: 700;
+    line-height: 1.2;
+}
+.slide-header .section-title {
+    font-size: 1.2em;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+
+.slide-main {
+    flex-grow: 1;
+    padding: 30px 40px;
+    overflow-y: auto; /* Scroll si el contenido es mucho, aunque idealmente cabe */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente por defecto */
+}
+
+.slide-footer {
+    padding: 15px 40px;
+    background-color: #f8f9fa; /* Gris claro */
+    color: #34495e; /* Gris azulado */
+    text-align: right;
+    font-size: 0.9em;
+    border-top: 1px solid #dee2e6;
+    min-height: 50px;
+}
+
+.slide-footer .page-number::before {
+    content: "Página ";
+}
+
+/* --- TIPOGRAFÍA ESPECÍFICA --- */
+h1, .h1-style { /* Para títulos principales de diapositiva en .slide-main */
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50; /* Azul oscuro */
+    font-size: 2.8em; /* Aumentado para ser el título principal */
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+h2, .h2-style {
+    font-family: 'Montserrat', sans-serif;
+    color: #34495e; /* Gris azulado */
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+    line-height: 1.3;
+}
+
+h3, .h3-style {
+    font-family: 'Montserrat', sans-serif;
+    color: #1abc9c; /* Acento turquesa */
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+    line-height: 1.3;
+}
+
+p {
+    font-size: 1.1em; /* Tamaño base para párrafos */
+    margin-bottom: 0.8em;
+    color: #34495e; /* Gris azulado para párrafos */
+}
+
+blockquote, .quote-style {
+    font-family: 'Lato', italic, sans-serif;
+    font-size: 1.2em;
+    color: #34495e; /* Gris azulado */
+    border-left: 4px solid #1abc9c; /* Borde de acento turquesa */
+    padding: 15px 20px;
+    margin: 20px auto; /* Centrado */
+    background-color: #f8f9fa; /* Fondo ligeramente diferente */
+    max-width: 80%; /* Para que no ocupe todo el ancho */
+    text-align: center;
+}
+
+blockquote p {
+    margin-bottom: 0;
+}
+
+ul, ol {
+    margin-left: 30px;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+    color: #34495e;
+}
+
+/* --- ESTILOS PARA PLACEHOLDERS DE IMÁGENES --- */
+.img-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #bdc3c7; /* Gris claro para placeholder */
+    color: #ffffff;
+    text-align: center;
+    font-size: 1em;
+    border: 2px dashed #7f8c8d; /* Borde discontinuo */
+    margin: 15px auto; /* Margen y centrado */
+}
+
+.img-placeholder::before {
+    content: attr(data-text) " (" attr(data-width) "x" attr(data-height) ")";
+}
+
+/* --- ICONOS SVG --- */
+.svg-icon {
+    width: 24px; /* Tamaño base, puede ser sobrescrito */
+    height: 24px;
+    fill: currentColor; /* Toma el color del texto circundante */
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* --- CLASES DE UTILIDAD --- */
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
+.font-weight-bold {
+    font-weight: 700;
+}
+.mb-0 { margin-bottom: 0 !important; }
+.mt-0 { margin-top: 0 !important; }
+/* Añadir más clases de utilidad según sea necesario */
+
+
+/* --- VARIACIONES DE DISEÑO PARA DIAPOSITIVAS ESPECÍFICAS --- */
+
+/* Estilo para la diapositiva de Título (Página 1) */
+.slide-main.title-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center;
+    padding-top: 50px; /* Más espacio arriba */
+    padding-bottom: 50px; /* Más espacio abajo */
+}
+
+.title-slide .main-title { /* h1 específico para la portada */
+    font-size: 3.2em; /* Más grande para la portada */
+    color: #2c3e50;
+    margin-bottom: 0.3em;
+}
+
+.title-slide .subtitle { /* p específico para el subtítulo de la portada */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    color: #34495e;
+    margin-bottom: 1.5em;
+}
+
+.title-slide .presenter-info {
+    font-size: 1.1em;
+    color: #7f8c8d; /* Gris más suave */
+    margin-top: 3em;
+}
+
+/* Estilo para diapositivas con listas o mucho texto */
+.slide-main.content-slide {
+    justify-content: flex-start; /* Alinea el contenido arriba */
+    text-align: left;
+}
+.content-slide h2 { /* Títulos de sección dentro de .content-slide */
+    text-align: left;
+    margin-bottom: 0.8em;
+    font-size: 2em;
+}
+
+
+/* Estilo para el índice (Página 2) */
+.index-list {
+    list-style-type: none;
+    padding-left: 0;
+    column-count: 2; /* Para dos columnas si la lista es larga */
+    column-gap: 40px;
+}
+.index-list li {
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+    padding-left: 25px;
+    position: relative;
+}
+.index-list li .icon-placeholder { /* Placeholder para iconos de índice */
+    position: absolute;
+    left: 0;
+    top: 5px; /* Ajustar según el tamaño del icono y texto */
+    color: #1abc9c; /* Color de acento para iconos */
+    font-size: 1.1em; /* Para el carácter que uses como placeholder o SVG */
+}
+.index-list li:hover {
+    color: #1abc9c; /* Efecto hover */
+}
+
+
+/* Estilo para elementos como "Derechos Fundamentales" (botones/tags) en página 3 */
+.keywords-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Espacio entre palabras clave */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.keyword-tag {
+    background-color: #ecf0f1; /* Gris muy claro */
+    color: #34495e; /* Gris azulado */
+    padding: 10px 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 1em;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.keyword-tag:hover {
+    background-color: #1abc9c; /* Acento al pasar el mouse */
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- RESPONSIVE SCALING (BÁSICO) --- */
+/* Para que el contenedor 4:3 se ajuste a pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .slide-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3; /* Mantiene la proporción */
+        max-width: 1024px; /* Evita que se agrande demasiado en pantallas anchas pero pequeñas */
+        max-height: calc(100vh - 40px); /* Evita que sobrepase la altura de la ventana */
+    }
+    body {
+        padding: 10px; /* Menos padding en pantallas pequeñas */
+    }
+    .slide-main {
+        padding: 20px;
+    }
+    .slide-header, .slide-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    h1, .h1-style { font-size: 2.2em; }
+    .title-slide .main-title { font-size: 2.5em; }
+    .title-slide .subtitle { font-size: 1.3em; }
+    p, ul, ol { font-size: 1em; }
+    blockquote, .quote-style { font-size: 1em; max-width: 90%; }
+}
+
+@media (max-width: 768px) {
+    .slide-header h1 { font-size: 1.5em; }
+    .slide-header .section-title { font-size: 1em; }
+    h1, .h1-style { font-size: 1.8em; }
+    h2, .h2-style { font-size: 1.5em; }
+    h3, .h3-style { font-size: 1.2em; }
+    .title-slide .main-title { font-size: 2em; }
+    .title-slide .subtitle { font-size: 1.1em; }
+    .index-list { column-count: 1; } /* Una columna en pantallas más pequeñas */
+}
